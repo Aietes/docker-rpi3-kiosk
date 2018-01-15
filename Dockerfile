@@ -31,13 +31,4 @@ RUN touch /home/pi/.url && chmod +x /home/pi/.url
 
 ADD xinitrc /home/pi/.xinitrc
 
-#CMD FRAMEBUFFER=/dev/fb1 startx /usr/bin/chromium $URL --window-size=240,320 --noerrdialogs --kiosk --incognito --no-sandbox
-#CMD FRAMEBUFFER=/dev/fb1 startx /home/pi/.xinitrc
 ENTRYPOINT echo $URL >> /home/pi/.url && FRAMEBUFFER=/dev/fb1 startx /home/pi/.xinitrc
-
-#VOLUME ["/etc/homegear", "/var/lib/homegear", "/var/log/homegear"]
-
-#EXPOSE 2001 2002 2003
-
-#CMD FRAMEBUFFER=/dev/fb1 startx /usr/bin/chromium http://www.bild.de --window-size=240,320 --noerrdialogs --kiosk --incognito -no-sandbox
-#CMD FRAMEBUFFER=/dev/fb1 xinit /root/browser.sh
