@@ -19,4 +19,5 @@ exec matchbox-window-manager -use_titlebar no -use_cursor no &
 # Run unclutter
 unclutter &
 
-chromium --incognito --kiosk --noerrdialogs --disable-translate-new-ux --disable-cache --disk-cache-dir=/dev/null --disk-cache-size=1 --app=$( cat /home/pi/.url )
+# --disable-cache --disk-cache-dir=/dev/null --disk-cache-size=1 
+chromium --incognito --kiosk --noerrdialogs --disable-translate-new-ux --app=$( cat /home/pi/.url )
