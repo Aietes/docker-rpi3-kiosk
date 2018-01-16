@@ -3,8 +3,6 @@ FROM aietes/rpi3
 ENV TZ=Europe/Berlin
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
-ENV URL="http://192.168.178.110:1880/ui"
-
 RUN apt-get update && apt-get install -y \
     chromium \
     x11-xserver-utils \
@@ -16,6 +14,8 @@ RUN apt-get update && apt-get install -y \
     unclutter
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+ENV URL="http://node-red:1880/ui"
 
 RUN echo "allowed_users=anybody" > /etc/X11/Xwrapper.config
 ADD 99-pitft.conf /usr/share/X11/xorg.conf.d/99-pitft.conf
